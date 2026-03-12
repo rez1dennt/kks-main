@@ -521,7 +521,7 @@ export const productData = {
     download: null,
   },
   reingineering: {
-    title: "Обратный инжиниринг",
+    title: "Обратный инжиниринг (реинжениринг)",
     text: (
       <p className="mt-[70px] ml-[45px] text-(--color-text-dark) max-[670px]:ml-0">
         В условиях санкций и снижения импорта деталей для различных
