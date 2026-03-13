@@ -5,6 +5,30 @@ import MapIcon from "@/shared/icons/MapIcon";
 import Image from "next/image";
 import Link from "next/link";
 
+const partners = [
+  {
+    name: 'ООО “ЮГТЕХМАШ”',
+    src: "/images/partners/ugtehmash.png",
+    width: 464,
+    height: 146,
+    logoClassName: "max-w-[320px]",
+  },
+  {
+    name: 'ООО “СМ-Сервис”',
+    src: "/images/partners/smservice.png",
+    width: 398,
+    height: 114,
+    logoClassName: "max-w-[270px]",
+  },
+  {
+    name: 'ООО “КМЗВ”',
+    src: "/images/partners/kmz.png",
+    width: 401,
+    height: 96,
+    logoClassName: "max-w-[300px]",
+  },
+] as const;
+
 const ContactsPage = () => (
   <>
     <Page id="7">
@@ -73,40 +97,29 @@ const ContactsPage = () => (
             </h2>
           </div>
         </div>
-        <div className="flex justify-center gap-[130px] flex-wrap items-end px-[45px] ml-[-200px] mr-[-45px] max-[920px]:ml-[-45px]">
-          <div className="flex flex-col items-center">
-            <Image
-              src="/images/partners/ugtehmash.png"
-              alt=""
-              width={464}
-              height={146}
-            />
-            <div className="mt-[60px] font-(family-name:--font-sf-ui-display) font-medium">
-              ООО “ЮГТЕХМАШ”
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/images/partners/smservice.png"
-              alt=""
-              width={398}
-              height={114}
-            />
-            <div className="mt-[70px] font-(family-name:--font-sf-ui-display) font-medium">
-              ООО “СМ-Сервис”
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/images/partners/kmz.png"
-              alt=""
-              width={401}
-              height={96}
-            />
-            <div className="mt-[79px] font-(family-name:--font-sf-ui-display) font-medium">
-              ООО “КМЗВ”
-            </div>
-          </div>
+        <div className="flex flex-wrap justify-center gap-[35px] px-[45px] ml-[-200px] mr-[-45px] max-[920px]:mx-0 max-[920px]:px-0">
+          {partners.map((partner) => (
+            <article
+              key={partner.name}
+              className="flex w-full max-w-[420px] flex-col items-center"
+            >
+              <div className="w-full rounded-[28px] border border-[#2f2f2f] bg-[#060606]/65 p-[22px]">
+                <div className="relative flex min-h-[210px] items-center justify-center overflow-hidden rounded-[22px] border border-[#b6b6b6]/12 bg-[linear-gradient(135deg,rgba(223,223,223,0.9),rgba(156,156,156,0.72))] px-[34px] py-[28px]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(58,50,217,0.04),transparent_36%)]" />
+                  <Image
+                    src={partner.src}
+                    alt={partner.name}
+                    width={partner.width}
+                    height={partner.height}
+                    className={`relative z-10 h-auto w-full object-contain ${partner.logoClassName}`}
+                  />
+                </div>
+              </div>
+              <div className="mt-[28px] text-center font-(family-name:--font-sf-ui-display) font-medium">
+                {partner.name}
+              </div>
+            </article>
+          ))}
         </div>
         <CompanyFooter className="mt-[140px]" />
       </div>
